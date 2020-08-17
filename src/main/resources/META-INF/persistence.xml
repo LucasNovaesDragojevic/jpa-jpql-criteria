@@ -5,15 +5,15 @@
     <persistence-unit name="alura">
         <class>br.com.alura.jpa.modelo.Conta</class>
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/alura_jpa?serverTimezone=UTC" />
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa?serverTimezone=UTC" />
+            <property name="javax.persistence.jdbc.user" value="alura" />
+            <property name="javax.persistence.jdbc.password" value="alura" />
             
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
         </properties>
     </persistence-unit>
 </persistence>
