@@ -5,21 +5,23 @@ import java.math.BigDecimal;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+
+import br.com.alura.jpa.dao.MovimentacaoDao;
 
 public class TestaSomaMedia {
 
 	public static void main(String[] args) {
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("alura");
 		EntityManager em = emf.createEntityManager();
 		
-		TypedQuery<BigDecimal> querySum = em.createQuery("SELECT SUM(m.valor) FROM Movimentacao m", BigDecimal.class);
-		BigDecimal somaMovimentacoes = querySum.getSingleResult();
-
+		BigDecimal somaMovimentacoes = new MovimentacaoDao(em).getSomaMovimentacoes();
+		
+		/*
 		TypedQuery<Double> queryAvg = em.createQuery("SELECT AVG(m.valor) FROM Movimentacao m", Double.class);
 		Double mediaMovimentacoes = queryAvg.getSingleResult();
-		
+		*/
 		System.out.println(somaMovimentacoes);
-		System.out.println(mediaMovimentacoes);
+		//System.out.println(mediaMovimentacoes);
 	}
 }

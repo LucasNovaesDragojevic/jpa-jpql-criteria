@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+@NamedQuery(name = "mediaDiariaMovimentacoes", query = "SELECT new br.com.alura.jpa.modelo.MediaComData(AVG(m.valor), DAY(m.data), MONTH(m.data)) FROM Movimentacao m GROUP BY DAY(m.data), MONTH(m.data), YEAR(m.data)")
 @Entity
 public class Movimentacao {
 	@Id
