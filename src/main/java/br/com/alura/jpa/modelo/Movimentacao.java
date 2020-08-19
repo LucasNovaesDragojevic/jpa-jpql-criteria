@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 @NamedQuery(name = "mediaDiariaMovimentacoes", query = "SELECT new br.com.alura.jpa.modelo.MediaComData(AVG(m.valor), DAY(m.data), MONTH(m.data)) FROM Movimentacao m GROUP BY DAY(m.data), MONTH(m.data), YEAR(m.data)")
 @Entity
 public class Movimentacao {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -86,4 +87,10 @@ public class Movimentacao {
 		this.valor = valor;
 	}
 
+	@Override
+	public String toString() {
+		return "Movimentacao [id=" + id + ", tipoMovimentacao=" + tipoMovimentacao + ", data=" + data + ", descricao="
+				+ descricao + ", valor=" + valor + ", conta=" + conta + ", categorias=" + categorias + "]";
+	}
+	
 }
